@@ -1,3 +1,37 @@
+**This fork (`fix_openblas` branch) is a custom repository that contains a fix for the `OpenBlas` build error.<br>
+See: https://zenn.dev/pinto0309/scraps/072fe73c6011c8**
+```bash
+/usr/include/lapack.h:15908:6: note: declared here
+15908 | void LAPACK_ssptrf_base(
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from ../matrix/jama-svd.h:34,
+                 from kaldi-matrix.cc:27:
+../matrix/cblas-wrappers.h: In function 'void kaldi::clapack_Xsptrf(KaldiBlasInt*, double*, KaldiBlasInt*, KaldiBlasInt*)':
+../matrix/cblas-wrappers.h:451:10: error: too few arguments to function 'void dsptrf_(const char*, const int*, double*, int*, int*, size_t)'
+  451 |   dsptrf_(const_cast<char *>("U"), num_rows, Mdata, ipiv, result);
+      |   ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/lapack.h:11,
+                 from /usr/include/lapacke.h:36,
+                 from ../matrix/kaldi-blas.h:100,
+                 from ../matrix/cblas-wrappers.h:29,
+                 from ../matrix/jama-svd.h:34,
+                 from kaldi-matrix.cc:27:
+/usr/include/lapack.h:15892:6: note: declared here
+15892 | void LAPACK_dsptrf_base(
+      |      ^~~~~~~~~~~~~~~~~~
+make[1]: *** [<builtin>: tp-matrix.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make[1]: *** [<builtin>: qr.o] Error 1
+make[1]: *** [<builtin>: packed-matrix.o] Error 1
+make[1]: *** [<builtin>: sp-matrix.o] Error 1
+make[1]: *** [<builtin>: kaldi-vector.o] Error 1
+make[1]: *** [<builtin>: kaldi-matrix.o] Error 1
+make[1]: Leaving directory '/workdir/kaldi/src/matrix'
+make: *** [Makefile:164: matrix] Error 2
+```
+================================
+
+
 [![Build Status](https://travis-ci.com/kaldi-asr/kaldi.svg?branch=master)](https://travis-ci.com/kaldi-asr/kaldi)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/kaldi-asr/kaldi) 
 Kaldi Speech Recognition Toolkit
