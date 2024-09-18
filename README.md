@@ -1,5 +1,6 @@
-**This fork (`fix_openblas` branch) is a custom repository that contains a fix for the `OpenBlas` build error.<br>
-See: https://zenn.dev/pinto0309/scraps/072fe73c6011c8**
+**This fork (`fix_openblas` branch) is a custom repository that contains a fix for the `OpenBlas` build error.**<br>
+**See: https://zenn.dev/pinto0309/scraps/072fe73c6011c8**<br>
+**Kaldi forked from: [1a233a11db](https://github.com/kaldi-asr/kaldi/tree/1a233a11db0b28aa4966a4e271c839c135de5914)**<br>
 ```bash
 /usr/include/lapack.h:15908:6: note: declared here
 15908 | void LAPACK_ssptrf_base(
